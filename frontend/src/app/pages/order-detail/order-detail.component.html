@@ -1,0 +1,104 @@
+<!-- <h1 align="center" class="display-4 mb-5">Order Detail</h1>
+<table class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th scope="col">Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Subtotal</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of (order$ | async)?.products">
+        <th class="align-middle" scope="row">
+            <a routerLink="/seller/product/{{item.productId}}/edit"><img height="100px" src="{{item.productIcon}}"
+                                                                         alt="{{item.productName}}"></a>
+        </th>
+        <td class="align-middle"><a routerLink="/seller/product/{{item.productId}}/edit">{{item.productName}}</a></td>
+        <td class="align-middle">{{item.productDescription}}</td>
+        <td class="align-middle">{{item.productPrice | currency}}</td>
+        <td class="align-middle">{{item.count}}</td>
+        <td class="align-middle">{{(item.productPrice * item.count | currency)}}</td>
+    </tr>
+    </tbody>
+</table>
+<h5 style="display: inline" class="float-right">Total: {{(order$ | async)?.orderAmount | currency}}</h5> -->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="assets/orders/css/style.css">
+
+    </head>
+    <body>
+    <section class="ftco-section" style="padding: 0em ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <!-- <h2 class="heading-section">Table #03</h2> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center mb-4"><strong> Order Detail</strong></h2>
+                    <div class="table-wrap">
+                        <table class="table">
+                        <thead class="thead-primary">
+                          <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>                      
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                                                     
+                                
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of (order$ | async)?.products">
+                            <th scope="row" class="scope" >
+                                 <a routerLink="/seller/product/{{item.productId}}/edit"><img height="100px" src="{{item.productIcon}}"
+                                                                         alt="{{item.productName}}"></a>
+                            </th>
+                            <td>{{item.productName}}</td>
+                            <td>{{item.productDescription}}</td>
+                            <td>{{item.productPrice | currency}}</td>
+                            <td>{{item.count}}</td>
+                           <td> {{(item.productPrice * item.count | currency)}}</td>
+                               
+                    
+
+                          </tr>
+                       
+                        
+                      
+                       
+                        </tbody>
+                      </table>
+                      <h3 style="display: inline" class="float-right">Total: {{(order$ | async)?.orderAmount | currency}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/orders/js/jquery.min.js"></script>
+  <script src="assets/orders/js/popper.js"></script>
+  <script src="assets/orders/js/bootstrap.min.js"></script>
+  <script src="assets/orders/js/main.js"></script>
+
+    </body>
+</html>

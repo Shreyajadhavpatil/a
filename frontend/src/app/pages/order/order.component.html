@@ -1,0 +1,130 @@
+<!-- <h1 align="center" class="display-4 mb-5">Orders</h1>
+
+<table class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th scope="col">Order #</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Customer Email</th>
+        <th scope="col">Customer phone</th>
+        <th scope="col">Shipping Address</th>
+        <th scope="col">Total</th>
+        <th scope="col">Order Data</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let order of page?.content">
+        <th class="align-middle" scope="row">
+            {{order.orderId}}
+        </th>
+        <td class="align-middle">{{order.buyerName}}</td>
+        <td class="align-middle">{{order.buyerEmail}}</td>
+        <td class="align-middle">{{order.buyerPhone}}</td>
+        <td class="align-middle">{{order.buyerAddress}}</td>
+        <td class="align-middle">{{order.orderAmount | currency}}</td>
+        <td class="align-middle">{{order.createTime | date}}</td>
+        <td class="align-middle">{{OrderStatus[order.orderStatus]}}</td>
+        <td class="align-middle">
+            <a *ngIf="!(currentUser.role == Role.Customer && currentUser.name == order.buyerEmail)"
+               style="display:
+            block" href="" routerLink="/order/{{order.orderId}}">
+                Show</a>
+            <a *ngIf="order.orderStatus == 0" style="display: block" (click)="cancel(order)" routerLink="./">Cancel</a>
+            <a *ngIf="currentUser.role != Role.Customer && order.orderStatus == 0"
+               style="display: block"
+               (click)="finish(order)"
+               routerLink="./">
+                Finish</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<app-pagination [currentPage]="page"></app-pagination> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assets/orders/css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section" style="padding: 0em ">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<!-- <h2 class="heading-section">Table #03</h2> -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="text-center mb-4"><strong> ORDERS</strong></h2>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>Order #</th>
+					        <th>Customer Name</th>
+					        <th>Customer Email</th>
+					        <th>Customer phone</th>
+					        <th>Shipping Address</th>
+					        <th>Total</th>
+                            <th>Order Data</th>
+                            <th>Status</th>
+                            <th>Action</th>                          
+                            	
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr *ngFor="let order of page?.content">
+					        <th scope="row" class="scope" >{{order.orderId}}</th>
+					        <td>{{order.buyerName}}</td>
+					        <td>{{order.buyerEmail}}</td>
+					        <td>{{order.buyerPhone}}</td>
+					        <td>{{order.buyerAddress}}</td>
+                           <td> {{order.orderAmount | currency}}</td>
+                           <td> {{order.createTime | date}}</td>        
+                          <td>{{OrderStatus[order.orderStatus]}}</td>
+					        <td><a *ngIf="!(currentUser.role == Role.Customer && currentUser.name == order.buyerEmail)"
+                                style="display:
+                             block" href="" routerLink="/order/{{order.orderId}}" class="btn btn-primary" style="margin: 8px;">Show</a>
+                             <a *ngIf="order.orderStatus == 0" style="display: block" (click)="cancel(order)" routerLink="./" class="btn btn-primary" style="  margin: 10px">Cancel</a>
+                          <a *ngIf="currentUser.role != Role.Customer && order.orderStatus == 0"
+                          style="display: block"
+                          (click)="finish(order)"
+                          routerLink="./" class="btn btn-primary"  style="margin: 8px;">Finish</a>
+                             </td>
+					      </tr>
+					   
+					    
+					  
+					   
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="assets/orders/js/jquery.min.js"></script>
+  <script src="assets/orders/js/popper.js"></script>
+  <script src="assets/orders/js/bootstrap.min.js"></script>
+  <script src="assets/orders/js/main.js"></script>
+
+	</body>
+</html>
+<app-pagination [currentPage]="page"></app-pagination>
+
+

@@ -1,0 +1,128 @@
+<!-- <h1 align="center" class="display-4 mb-5">My WishList</h1> -->
+
+<!-- previous Cart Detail Table-->
+<!-- <table class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th scope="col">Photo</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        
+        <th scope="col">Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let productInOrder of page?.content">
+      
+        <th class="align-middle" scope="row">
+            <a routerLink="/product/{{productInOrder.product.productId}}"><img height="100px"
+                                                                       src="{{productInOrder.product.productIcon}}"
+                                                                       alt="{{productInOrder.product.productName}}"></a>
+        </th>
+       <td class="align-middle">
+        {{productInOrder.product.productId}}
+       </td>
+        <td class="align-middle"><a
+                routerLink="/product/{{productInOrder.product.productId}}">{{productInOrder.product.productName}}</a></td>
+        <td class="align-middle">{{productInOrder.product.productPrice | currency}}</td>
+         
+        
+        <td class="align-middle" >
+            <a (click)="handleRemoveFromWishList(productInOrder.product.productId)" routerLink="/wishlist">Remove</a>
+        </td>
+      
+    </tr>
+
+    </tbody>
+</table>
+
+<ng-template #empty>
+    <h4 class="text-muted text-center">Wishlist is empty. Go to get something! :)</h4>
+</ng-template>
+ -->
+
+ 
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="assets/orders/css/style.css">
+
+    </head>
+    <body>
+    <section class="ftco-section" style="padding: 0em ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <!-- <h2 class="heading-section">Table #03</h2> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:goldenrod;" class="text-center mb-4"><strong> My Wishlist</strong></h2>
+                    <div class="table-wrap">
+                        <table class="table">
+                        <thead class="thead-primary" style="background-color: #808ef0;">
+                          <tr>
+                            <th>Photo</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>   
+                             <th>Action</th>     
+
+                                                                                
+                                
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr  *ngFor="let productInOrder of page?.content">
+                            <th scope="row" class="scope" >
+                                 <a routerLink="/product/{{productInOrder.product.productId}}"><<img height="100px"
+                                                                       src="{{productInOrder.product.productIcon}}"
+                                                                       alt="{{productInOrder.product.productName}}"></a>
+                            </th>
+                            <td>{{productInOrder.product.productId}}</td>
+                            <td routerLink="/product/{{productInOrder.product.productId}}">{{productInOrder.product.productName}}</td>
+                            <td>{{productInOrder.product.productPrice | currency}}</td>
+                            <td><a (click)="handleRemoveFromWishList(productInOrder.product.productId)" routerLink="/wishlist">Remove</a></td>
+                           
+                               
+                    
+
+                          </tr>
+                       
+                        
+                      
+                       
+                        </tbody>
+                      </table>
+                      <ng-template #empty>
+    <h4 class="text-muted text-center">Wishlist is empty. Go to get something! :)</h4>
+</ng-template>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/orders/js/jquery.min.js"></script>
+  <script src="assets/orders/js/popper.js"></script>
+  <script src="assets/orders/js/bootstrap.min.js"></script>
+  <script src="assets/orders/js/main.js"></script>
+
+    </body>
+</html>
+
+
+

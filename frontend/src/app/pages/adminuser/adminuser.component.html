@@ -1,0 +1,85 @@
+<h1 align="center" class="display-6 "><u> Users </u></h1>
+
+   
+    <h4>Search <input type = "text" name="search" [(ngModel)]="searchText" placeholder ="Enter Some Text To Search"  style="height: 30px;"/>
+    </h4>
+    <table id="table" class="table table-striped text-center" style="width:100%; background-color: aliceblue;" >    <thead >
+    <tr >
+        <th scope="col" style="font-size: 15px; padding: 5px;">Email</th>
+        <th scope="col" style="font-size: 15px">Name</th>
+        <th scope="col" style="font-size: 15px">Role</th>
+        <th scope="col" style="font-size: 15px">Action</th>
+        
+    </tr>
+    </thead>
+    <!--Search by 
+    <select ng-model="columns" ng-options="e for e in headers">
+        <option value=""></option>
+    </select>
+    Search <input type = "text" ng-model ="Search[columns]" placeholder ="Enter Some Text To Search" />-->
+     <tbody>
+    <tr *ngFor="let user of page?.content | filter:searchText">
+        
+        <td class="align-middle " style="font-size: 14px;font-family: auto;">{{user.email}}</td>
+        <td class="align-middle" style="font-size: 14px;font-family: auto;">{{user.name}}</td>
+        <td class="align-middle" style="font-size: 14px;font-family: auto;">{{user.role}}</td>
+        <td class="align-middle">
+            <!-- <button  *ngIf="user.role=='ROLE_CUSTOMER'" (click)=addAdmin(user.email)  class="btn btn-success" style="background-color: #4762dee8;">Add Admin</button> -->
+            <button  *ngIf="user.role=='ROLE_CUSTOMER'" (click)=removeAdmin(user.email)  class="btn btn-success" style="background-color: red;">Remove User</button>
+           <!-- <a  [ngClass]="{'isDisabled':'(productInfo.productStock >10)? true:false'}"style="display: block" class="isDisabled"  routerLink="/email">Email</a>-->
+        </td>
+
+    </tbody>
+</table>
+<app-pagination [currentPage]="page"></app-pagination> 
+
+
+
+<!-- 
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Role</th>        
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of page?.content | filter:searchText">
+        <td class="align-middle">
+          <div class="d-flex align-items-center">
+            <img
+                src="https://th.bing.com/th/id/OIP.dghTK8c-l3ri-DwJqk4zWQHaE8?w=250&h=180&c=7&r=0&o=5&dpr=1.38&pid=1.7"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1" style="padding-left: 2x">{{user.email}}</p> -->
+              <!-- <p class="text-muted mb-0">john.doe@gmail.com</p> -->
+            <!-- </div>
+          </div>
+        </td>
+        <td class="align-middle">
+          <p class="fw-normal mb-1">{{user.name}}</p> -->
+          <!-- <p class="text-muted mb-0">IT department</p> -->
+        <!-- </td>
+        <td class="align-middle">
+          <span class="badge badge-success rounded-pill d-inline">{{user.role}}</span>
+        </td> -->
+        <!-- <td class="align-middle">Senior</td>
+        <td>
+          <button type="button" class="btn btn-link btn-sm btn-rounded">
+            Edit
+          </button>
+        </td> -->
+        <!-- <td class="align-middle">
+            <button  *ngIf="user.role=='ROLE_CUSTOMER'" (click)=addAdmin(user.email)  class="btn btn-success">Add Admin</button>
+            <button  *ngIf="user.role=='ROLE_MANAGER'" (click)=removeAdmin(user.email)  class="btn btn-success">Remove Admin</button> -->
+           <!-- <a  [ngClass]="{'isDisabled':'(productInfo.productStock >10)? true:false'}"style="display: block" class="isDisabled"  routerLink="/email">Email</a>-->
+        <!-- </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-pagination [currentPage]="page"></app-pagination> -->
